@@ -1,6 +1,6 @@
 # React-Native SequenceImage Component : react-native-SequenceImage
 
-![version](https://img.shields.io/badge/version-0.0.1-green.svg)
+![version](https://img.shields.io/badge/version-0.0.2-green.svg)
 
 ### Preface
 
@@ -8,13 +8,12 @@ Are you struggling with placeholder images in react native and seeking some solu
 
 ### Features
 
-* Until image is not loaded from the given URL, some placeholder required to show that empty space.
-* No placeholder image pass, then behave like react-native `image`.
+* For Render Sequence Images for loader like frame animation.
 * ease to implement and use.
 
 ### Installation
 
-* Run this command `$ npm install react-native-SequenceImage --save`
+* Run this command `$ npm install react-native-sequenceimage --save`
 
 ### Implementation
 
@@ -22,21 +21,34 @@ Are you struggling with placeholder images in react native and seeking some solu
 
 ```JavaScript
 import React, { Component } from 'react';
-import { View, StyleSheet, AppRegistry } from 'react-native';
-import SequenceImage from 'react-native-SequenceImage';
+import { View, StyleSheet, Text, Image } from 'react-native';
+import SequenceImage from 'react-native-sequenceimage';
 
-export default class SequenceImageViewDemo extends Component {
-	const arrImages = [require('./images/pm_loader_00.png'),
-			require('./images/pm_loader_01.png'),
-			require('./images/pm_loader_02.png'),
-			require('./images/pm_loader_03.png')]
+export default class App extends Component {
 	render() {
+		const imagesArr = [
+			require('./images/img_0.png'),
+			require('./images/img_1.png'),
+			require('./images/img_2.png'),
+			require('./images/img_3.png'),
+			require('./images/img_4.png'),
+			require('./images/img_5.png'),
+			require('./images/img_6.png'),
+			require('./images/img_7.png'),
+			require('./images/img_8.png'),
+			require('./images/img_9.png'),
+			require('./images/img_10.png'),
+			require('./images/img_11.png'),
+			require('./images/img_12.png'),
+			require('./images/img_13.png'),
+			require('./images/img_14.png'),
+			require('./images/img_15.png'),
+			require('./images/img_16.png')
+		];
 		return (
 			<View style={styles.container}>
-				<SequenceImage
-					style={{ height: 100, width: 100, alignSelf: 'center', justifyContent: 'center' }}
-					images={arrImages}//ArrayOfImageUri
-				/>
+				<SequenceImage images={imagesArr} duration={2000} repeatMode={'default'} />
+				<Text>Hello World</Text>
 			</View>
 		);
 	}
@@ -47,11 +59,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#F5FCFF'
+		backgroundColor: '#fff'
 	}
 });
 
-AppRegistry.registerComponent('sequenceImage', () => SequenceImageViewDemo);
+AppRegistry.registerComponent('sequenceImage', () => App);
 ```
 
 ### Pass this Two props for Visible PlaceHolder

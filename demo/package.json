@@ -6,12 +6,22 @@
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest"
 	},
-	"keywords": ["SequenceImage", "Frame Animation", "Image Frames"],
+	"keywords": [
+		"SequenceImage",
+		"Frame Animation",
+		"Image Frames"
+	],
 	"dependencies": {
 		"react": "16.3.1",
-		"react-native": "0.55.1"
+		"react-native": "0.55.1",
+		"react-native-sequenceimage": "0.0.1"
 	},
-	"files": ["LICENSE", "README.md", "SequenceImage.js", ".gitignore"],
+	"files": [
+		"LICENSE",
+		"README.md",
+		"SequenceImage.js",
+		".gitignore"
+	],
 	"devDependencies": {
 		"babel-jest": "22.4.3",
 		"babel-preset-react-native": "4.0.0",
