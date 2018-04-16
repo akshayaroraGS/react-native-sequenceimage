@@ -1,0 +1,17 @@
+{
+	"name": "react-native-sequenceimage",
+	"version": "0.0.1",
+	"description": "React native sequencer image loader Component",
+	"main": "SequenceImage.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/akshayaroraGS/react-native-sequenceimage.git"
+	},
+	"keywords": ["React native sequenceimage image"],
+	"author": "Akshay Arora",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/akshayaroraGS/react-native-sequenceimage/issues"
+	},
+	"homepage": "https://github.com/akshayaroraGS/react-native-sequenceimage#readme"
+}
