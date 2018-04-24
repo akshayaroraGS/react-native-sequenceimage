@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'react-native';
+import { View, Image, Platform } from 'react-native';
+
+const isAndroid = Platform.OS === 'android';
 
 export default class SequenceImage extends React.Component {
 	static propTypes = {
@@ -21,10 +23,34 @@ export default class SequenceImage extends React.Component {
 		image: this.props.images[0]
 	};
 
+	constructor(props) {
+		super(props);
+		if (isAndroid) {
+			this.view = [];
+			this.firstLoadFlag = true;
+			this.props.images.map(data => {
+				this.view.push(
+					React.createElement(Image, {
+						key: data,
+						source: data,
+						position: 'absolute',
+						style: {
+							height: 0,
+							width: 0,
+							flex: 0
+						}
+					})
+				);
+			});
+		}
+	}
+
 	componentDidMount() {
-		clearInterval(this.interval);
-		this.interval = null;
-		this.animate();
+		requestAnimationFrame(() => {
+			clearInterval(this.interval);
+			this.interval = null;
+			this.animate();
+		});
 	}
 
 	componentWillUnmount() {
@@ -46,11 +72,17 @@ export default class SequenceImage extends React.Component {
 				newCurrent = 0;
 			}
 			this.isReverseMode ? newCurrent-- : newCurrent++;
-			this.setState({ image: images[newCurrent], currentPosition: newCurrent });
+			this.firstLoadFlag = false;
+			this.setState({ image: images[parseInt(newCurrent)], currentPosition: parseInt(newCurrent) });
 		}, duration / images.length);
 	}
 
 	render() {
-		return <Image {...this.props} source={this.state.image} />;
+		return (
+			<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+				{isAndroid && this.firstLoadFlag && this.view}
+				<Image {...this.props} source={this.state.image} />
+			</View>
+		);
 	}
 }

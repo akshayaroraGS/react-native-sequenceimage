@@ -1,10 +1,10 @@
 # React-Native SequenceImage Component : react-native-SequenceImage
 
-![version](https://img.shields.io/badge/version-0.0.2-green.svg)
+![version](https://img.shields.io/badge/version-0.0.3-green.svg)
 
 ### Preface
 
-Are you struggling with placeholder images in react native and seeking some solution to put placeholder until your image is not downloaded from internet, you are on a right repository.
+Are you struggling with Frame Animation images in react native and seeking some solution to put Frame Animation for Images.
 
 ### Features
 
@@ -66,10 +66,6 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('sequenceImage', () => App);
 ```
 
-### Pass this Two props for Visible PlaceHolder
-
-* this.props.images
-
 ### Available props
 
 1.  all image props
@@ -77,6 +73,10 @@ AppRegistry.registerComponent('sequenceImage', () => App);
 3.  duration: PropTypes.number,
 4.  repeatCount: PropTypes.number,
 5.  repeatMode: PropTypes.oneOf(['reverse', 'default'])
+
+### Pass this Two props for Visible SequenceImage
+
+* this.props.images
 
 ### Feedbacks
 
