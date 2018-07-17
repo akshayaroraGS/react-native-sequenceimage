@@ -20,7 +20,8 @@ export default class SequenceImage extends React.Component {
 
 	state = {
 		currentPosition: 0,
-		image: this.props.images[0]
+		image: this.props.images[0],
+		style: !!this.props.style ? this.props.style : {}
 	};
 
 	constructor(props) {
@@ -81,7 +82,7 @@ export default class SequenceImage extends React.Component {
 		return (
 			<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 				{isAndroid && this.firstLoadFlag && this.view}
-				<Image {...this.props} source={this.state.image} />
+				<Image {...this.props} style={this.state.style} source={this.state.image} />
 			</View>
 		);
 	}
